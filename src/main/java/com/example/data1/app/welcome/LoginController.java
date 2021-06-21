@@ -1,5 +1,6 @@
 package com.example.data1.app.welcome;
 
+import com.example.data1.domain.model.UserModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LoginController {
     private final ProductController productController;
     @RequestMapping(value = "/")
-    public String formLogin(@ModelAttribute("loginForm") LoginForm form, Model model) {
+    public String formLogin(@ModelAttribute("loginForm") UserModel form, Model model) {
         return "login/index";
     }
     @RequestMapping(value ="/" , method = RequestMethod.POST , params ="confirm")
