@@ -13,7 +13,7 @@
 <body>
 <h1>Abc Create Form</h1>
 <form:form modelAttribute="abcForm"
-           action="${pageContext.request.contextPath}/create">
+           action="${pageContext.request.contextPath}/abc/create">
     <form:label path="input1">Input1</form:label>
     <form:input path="input1" />
     <form:errors path="input1" />

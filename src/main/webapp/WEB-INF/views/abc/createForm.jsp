@@ -17,11 +17,11 @@
     <form:label path="input1">Input1</form:label>
     ${f:h(abcForm.input1)}
     <form:hidden path="input1" /> <!-- (1) -->
-    <br>
+    <br/>
     <form:label path="input2">Input2</form:label>
     ${f:h(abcForm.input2)}
     <form:hidden path="input2" /> <!-- (1) -->
-    <br>
+    <br/>
     <input type="submit" name="redo" value="Back" /> <!-- (2) -->
     <input type="submit" value="Create" /> <!-- (3) -->
 </form:form>

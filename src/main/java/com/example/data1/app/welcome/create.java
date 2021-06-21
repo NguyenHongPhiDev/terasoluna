@@ -11,14 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("abc")
 public class create {
-//    @ModelAttribute
-//    public AbcForm setUpAbcForm() {
-//        return new abcForm();
-//    }
     @RequestMapping(value = "creatForm", params = "form")
     public String createForm(@ModelAttribute("abcForm") AbcForm form, Model model) {
-        // omitted
-        return "abc/form"; // (2)
+        return "abc/form";
     }
     @RequestMapping(value = "create", method = RequestMethod.POST,params = "confirm")
     public String createConfirm(@Validated AbcForm form, BindingResult result,
@@ -39,9 +34,8 @@ public class create {
         }
         return "redirect:/abc/create?complete";
     }
-    @RequestMapping(value = "create", params = "complete")
+    @RequestMapping(value = "create",method = RequestMethod.GET, params = "complete")
     public String createComplete() {
-        // omitted
-        return "abc/createForm";
+        return "abc/complete";
     }
 }

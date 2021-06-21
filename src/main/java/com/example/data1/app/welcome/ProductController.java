@@ -23,18 +23,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Handles requests for the application home page.
  */
 @Controller
-@RequiredArgsConstructor
-//@RequestMapping(value = "data1")
+//@RequiredArgsConstructor
 public class ProductController {
-    private final ProductService productService;
-    private final ProductRepository productRepository;
-    @RequestMapping(value = "creatForm", params = "form")
-    public String createForm(@ModelAttribute("abcForm") AbcForm form, Model model) {
-        return "abc/form";
-    }
-    @RequestMapping(value = "Products",method = RequestMethod.GET)
-    public List<ProductDto> getProducts(){
-        return productService.getProducts();
+//    private final ProductService productService;
+//    private final ProductRepository productRepository;
+
+//    @RequestMapping(value = "Products", method = RequestMethod.GET)
+//    public List<ProductDto> getProducts() {
+//       // return productService.getProducts();
+//    }
+
+    @RequestMapping(value = "temp", method = RequestMethod.GET)
+    public String getProduct() {
+        return "Phi";
     }
 
 }
