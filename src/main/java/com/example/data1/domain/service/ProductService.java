@@ -23,14 +23,14 @@ public class ProductService {
                 .collect(Collectors.toList());
     }
 
-//    public ProductDto getProduct(final Integer id){
-//        return productRepository
-//                .findProductModelById(id)
-//                .map(productMapper::toProductDto)
-//                .orElseGet(()->{
-//                    log.warn("products not found. Id: {}.",id);
-//                    throw  new RuntimeException("product not found. ID : "+id);
-//                });
-//    }
+    public ProductDto getProduct(final Integer id){
+        return productRepository
+                .findProductModelById(id)
+                .map(productMapper::toProductDto)
+                .orElseGet(()->{
+                    log.warn("products not found. Id: {}.",id);
+                    throw  new RuntimeException("product not found. ID : "+id);
+                });
+    }
 
 }
