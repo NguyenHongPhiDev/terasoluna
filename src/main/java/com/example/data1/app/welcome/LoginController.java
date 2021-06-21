@@ -21,19 +21,17 @@ public class LoginController {
     @RequestMapping(value ="/" , method = RequestMethod.POST , params ="confirm")
     public String createConfirm(@Validated LoginForm form, BindingResult result,
                                 Model model) {
-        if (result.hasErrors()) {
-            return Error(form, model);
-        }
         String username = form.getUsername();
         String password = form.getPassword();
-        System.out.println(username);
-        System.out.println(password);
+        if (username.isEmpty() || password.isEmpty()) {
+            return Error(form, model);
+        }
         return productController.home(model);
     }
-    @RequestMapping(value = "create", method = RequestMethod.POST,params = "redo")
+    @RequestMapping(value = "login1", method = RequestMethod.POST)
     private String Error(@ModelAttribute("loginForm") LoginForm form, Model model) {
-        model.addAttribute("errorusername","Username not null!");
-//        model.addAttribute("")
+        model.addAttribute("errorUn","Username is missing!");
+        model.addAttribute("errorPw","Password is missing!");
         return "login/index";
     }
 

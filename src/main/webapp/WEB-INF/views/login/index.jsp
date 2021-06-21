@@ -16,14 +16,10 @@
                action="${pageContext.request.contextPath}/login1/">
         <form:label path="username">UserName :</form:label>
         <form:input path="username"/>
-        <form:errors path="username"/>
-        <br/>
-        <br>
+        <p style="color:red;">${errorUn}</p>
         <form:label path="password">Password :</form:label>
         <form:input path="password"/>
-        <form:errors path="password"/>
-        <br/>
-        <br>
+        <p style="color:red;" >${errorPw}</p>
         <input style="margin-left: 100px" type="submit" name="confirm" value="Login"/>
     </form:form>
 </div>
