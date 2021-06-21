@@ -13,7 +13,7 @@
 <body>
 <div style="width: 50%; margin: auto; margin-top:100px; ">
     <form:form modelAttribute="loginForm"
-               action="${pageContext.request.contextPath}/login1">
+               action="${pageContext.request.contextPath}/login1/">
         <form:label path="username">UserName :</form:label>
         <form:input path="username"/>
         <form:errors path="username"/>

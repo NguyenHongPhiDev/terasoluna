@@ -14,28 +14,26 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 public class ProductController {
-//    private final ProductService productService;
-//    private final ProductRepository productRepository;
+    private final ProductService productService;
+    private final ProductRepository productRepository;
 
-//    @RequestMapping(value = "Products", method = RequestMethod.GET)
-//    public List<ProductDto> getProducts() {
-//       // return productService.getProducts();
-//    }
+    @RequestMapping(value = "Products", method = RequestMethod.GET)
+    public String home (Model model){
+        List<ProductDto> list1 = productService.getProducts();
 
-    @RequestMapping(value = "temp", method = RequestMethod.GET)
-    public String getProduct() {
-        return "Phi";
+        model.addAttribute("list",list1);
+        return "welcome/home";
     }
+//    public List<ProductDto> getProducts() {
+//        return productService.getProducts();
+//    }
 
 }
