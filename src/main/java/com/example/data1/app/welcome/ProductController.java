@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -23,9 +24,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequiredArgsConstructor
-public class HelloController {
+//@RequestMapping(value = "data1")
+public class ProductController {
     private final ProductService productService;
     private final ProductRepository productRepository;
+    @RequestMapping(value = "creatForm", params = "form")
+    public String createForm(@ModelAttribute("abcForm") AbcForm form, Model model) {
+        return "abc/form";
+    }
     @RequestMapping(value = "Products",method = RequestMethod.GET)
     public List<ProductDto> getProducts(){
         return productService.getProducts();

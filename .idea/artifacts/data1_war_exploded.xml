@@ -82,6 +82,7 @@
           <element id="library" level="project" name="Maven: javax.persistence:javax.persistence-api:2.2" />
           <element id="library" level="project" name="Maven: javax.el:javax.el-api:3.0.0" />
           <element id="library" level="project" name="Maven: org.mapstruct:mapstruct:1.4.1.Final" />
+          <element id="library" level="project" name="Maven: org.modelmapper:modelmapper:2.3.0" />
           <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.9.4" />
           <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
           <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.2" />
