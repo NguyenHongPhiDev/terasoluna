@@ -26,12 +26,19 @@ public class LoginController {
         if (username.isEmpty() || password.isEmpty()) {
             return Error(form, model);
         }
+        if(!username.equals("Phi")||!password.equals("123")){
+            return Error1(form, model);
+        }
         return productController.home(model);
     }
     @RequestMapping(value = "login1", method = RequestMethod.POST)
     private String Error(@ModelAttribute("loginForm") LoginForm form, Model model) {
         model.addAttribute("errorUn","Username is missing!");
         model.addAttribute("errorPw","Password is missing!");
+        return "login/index";
+    }
+    private String Error1(@ModelAttribute("loginForm") LoginForm form, Model model) {
+        model.addAttribute("wrong","Username or Password is wrong!");
         return "login/index";
     }
 
