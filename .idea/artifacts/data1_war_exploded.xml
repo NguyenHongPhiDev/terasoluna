@@ -111,9 +111,8 @@
           <element id="library" level="project" name="Maven: org.apache.tiles:tiles-template:3.0.8" />
           <element id="library" level="project" name="Maven: org.apache.tiles:tiles-autotag-core-runtime:1.2" />
           <element id="library" level="project" name="Maven: org.apache.tiles:tiles-request-jsp:1.0.7" />
-          <element id="library" level="project" name="Maven: org.apache.taglibs:taglibs-standard-jstlel:1.2.5" />
-          <element id="library" level="project" name="Maven: org.apache.taglibs:taglibs-standard-spec:1.2.5" />
-          <element id="library" level="project" name="Maven: org.apache.taglibs:taglibs-standard-impl:1.2.5" />
+          <element id="library" level="project" name="Maven: taglibs:standard:1.1.2" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.1.2" />
           <element id="library" level="project" name="Maven: net.bytebuddy:byte-buddy:1.10.18" />
           <element id="library" level="project" name="Maven: org.objenesis:objenesis:3.1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:5.3.2" />
@@ -126,7 +125,6 @@
           <element id="library" level="project" name="Maven: com.google.errorprone:error_prone_annotations:2.2.0" />
           <element id="library" level="project" name="Maven: com.google.j2objc:j2objc-annotations:1.1" />
           <element id="library" level="project" name="Maven: org.codehaus.mojo:animal-sniffer-annotations:1.17" />
-          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
         </element>
       </element>
       <element id="directory" name="META-INF">

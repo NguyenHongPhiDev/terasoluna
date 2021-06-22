@@ -20,37 +20,37 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class OrderService {
-    private final OrderMapper orderMapper;
     private  final OrderRepository orderRepository;
     private final  ProductService productService;
     private final  UserService userService;
+    private final OrderMapper orderMapper;
 
 
-//    public OrderDto getOrder(final String id){
-//        return orderRepository
-//                .findById(id)
-//                .map(orderMapper::toOrderDto)
-//                .orElseGet(()->{
-//                    log.warn("order not found. Id: {}.",id);
-//                    throw new BadRequestException("order not found. ID : "+id);
-//                });
-//    }
-    @Transactional
-    public void createOrder(final CreateOrder request){
-        final ProductDto product = productService.getProduct(request.getProductId());
-        final UserModel user = userService.getUserById(request.getUserId());
-        if(user.getBalance()<product.getAmount()){
-            log.warn("User {} don't have enough balance",user.getUsername());
-            throw new BadRequestException("Balance not enough");
-        }
-        final OrderModel orderModel = new OrderModel();
-        orderModel.setId(UUID.randomUUID().toString());
-        orderModel.setUserId(user.getId());
-        orderModel.setStatus(OrderStatus.PAID);
-        orderModel.setAmount(product.getAmount());
-        user.deduct(product.getAmount());
-
-        orderRepository.save(orderModel);
+    public OrderDto getOrder(final String id){
+        return orderRepository
+                .findById(id)
+                .map(orderMapper::toOrderDto)
+                .orElseGet(()->{
+                    log.warn("order not found. Id: {}.",id);
+                    throw new BadRequestException("order not found. ID : "+id);
+                });
     }
+//    @Transactional
+//    public void createOrder(final CreateOrder request){
+//        final ProductDto product = productService.getProduct(request.getProductId());
+//        final UserModel user = userService.getUserById(request.getUserId());
+//        if(user.getBalance()<product.getAmount()){
+//            log.warn("User {} don't have enough balance",user.getUsername());
+//            throw new BadRequestException("Balance not enough");
+//        }
+//        final OrderModel orderModel = new OrderModel();
+//        orderModel.setId(UUID.randomUUID().toString());
+//        orderModel.setUserId(user.getId());
+//        orderModel.setStatus(OrderStatus.PAID);
+//        orderModel.setAmount(product.getAmount());
+//        user.deduct(product.getAmount());
+//
+//        orderRepository.save(orderModel);
+//    }
 
 }

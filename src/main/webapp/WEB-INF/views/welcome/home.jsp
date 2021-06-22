@@ -1,14 +1,12 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Home</title>
 </head>
 <body>
 <div id="wap">
-    <c:forEach var="product" items="${list}">
-        <h4>${product.id}</h4>
-    </c:forEach>
+<%--    <c:forEach var="product" items="${list}">--%>
+<%--        <h4>${product.id}</h4>--%>
+<%--    </c:forEach>--%>
     <div id="wrapper"
          style="border: 1px solid black; width:40% ;display: flex; justify-content: space-around;padding-top: 15px">
         <h4>Id : ${list.get(0).id}</h4>
@@ -17,7 +15,7 @@
         <h4>Amount : ${list.get(0).amount}</h4>
         <button style="height: 50%; ">
             <a style="text-decoration: none; color: black;"
-               href="">Buy</a>
+               href="Orders/?id=${list.get(0).id}">Buy</a>
         </button>
     </div>
     <br/>

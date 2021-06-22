@@ -20,7 +20,6 @@ import java.util.List;
 @RequestMapping("login1")
 @RequiredArgsConstructor
 public class LoginController {
-    private final ProductController productController;
     private final UserService userService;
     @RequestMapping(value = "/")
     public String formLogin(@ModelAttribute("loginForm") UserModel form, Model model) {
@@ -41,7 +40,7 @@ public class LoginController {
         if(!user.getPassword().equals(password)){
             return Error1(form, model);
         }
-        return productController.home(model);
+        return "redirect:/Products";
     }
     @RequestMapping(value = "login1", method = RequestMethod.POST)
     private String Error(@ModelAttribute("loginForm") LoginForm form, Model model) {
