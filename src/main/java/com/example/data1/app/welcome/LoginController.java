@@ -1,6 +1,10 @@
 package com.example.data1.app.welcome;
 
+import com.example.data1.domain.dto.ProductDto;
+import com.example.data1.domain.dto.UserDto;
 import com.example.data1.domain.model.UserModel;
+import com.example.data1.domain.service.ProductService;
+import com.example.data1.domain.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,11 +14,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("login1")
 @RequiredArgsConstructor
 public class LoginController {
     private final ProductController productController;
+    private final UserService userService;
     @RequestMapping(value = "/")
     public String formLogin(@ModelAttribute("loginForm") UserModel form, Model model) {
         return "login/index";
@@ -27,7 +34,11 @@ public class LoginController {
         if (username.isEmpty() || password.isEmpty()) {
             return Error(form, model);
         }
-        if(!username.equals("Phi")||!password.equals("123")){
+        final UserDto user = userService.getUser(username);
+        if(user == null){
+            return Error1(form, model);
+        }
+        if(!user.getPassword().equals(password)){
             return Error1(form, model);
         }
         return productController.home(model);

@@ -49,7 +49,7 @@ public class UserModel extends BaseEntity implements Serializable {
 //    )
 //    private Set<RoleModel> roles = new HashSet<>();
 //
-//    public void deduct(final Integer amount){
-//        this.balance= this.balance - amount;
-//    }
+    public void deduct(final Integer amount){
+        this.balance= this.balance - amount;
+    }
 }

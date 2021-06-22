@@ -16,6 +16,6 @@ public interface UserRepository extends JpaRepository<UserModel, String> {
             value = " SELECT u FROM User u " +
                     " WHERE u.username = ?1 "
     )
-    @Transactional(readOnly = true)
+//    @Transactional(readOnly = true)
     Optional<UserModel> findByUsername(String username);
 }
