@@ -17,13 +17,13 @@ public interface UserRepository extends JpaRepository<UserModel, String> {
 //                    " WHERE u.username = ?1 "
 //    )
 //    @Transactional(readOnly = true)
-    Optional<UserModel> findByUsername(String username);
+//    Optional<UserModel> findByUsername(String username);
   @Query(
             value = " SELECT u FROM User u " +
                     " JOIN FETCH u.roles r " +
                     " JOIN FETCH r.permissions " +
                     " WHERE u.username = ?1 "
     )
-    @Transactional(readOnly = true)
-    Optional<UserModel> findByUsernameAndRoles(String username);
+//    @Transactional(readOnly = true)
+    Optional<UserModel> findByUsername(String username);
 }

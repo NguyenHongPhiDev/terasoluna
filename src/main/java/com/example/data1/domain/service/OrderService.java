@@ -35,22 +35,23 @@ public class OrderService {
                     throw new BadRequestException("order not found. ID : "+id);
                 });
     }
-//    @Transactional
-//    public void createOrder(final CreateOrder request){
-//        final ProductDto product = productService.getProduct(request.getProductId());
-//        final UserModel user = userService.getUserById(request.getUserId());
-//        if(user.getBalance()<product.getAmount()){
-//            log.warn("User {} don't have enough balance",user.getUsername());
-//            throw new BadRequestException("Balance not enough");
-//        }
-//        final OrderModel orderModel = new OrderModel();
-//        orderModel.setId(UUID.randomUUID().toString());
-//        orderModel.setUserId(user.getId());
-//        orderModel.setStatus(OrderStatus.PAID);
-//        orderModel.setAmount(product.getAmount());
-//        user.deduct(product.getAmount());
-//
-//        orderRepository.save(orderModel);
-//    }
+    @Transactional
+    public void createOrder(final CreateOrder request){
+        final ProductDto product = productService.getProduct(request.getProductId());
+        final UserModel user = userService.getUserById(request.getUserId());
+        if(user.getBalance()<product.getAmount()){
+            log.warn("User {} don't have enough balance",user.getUsername());
+            throw new BadRequestException("Balance not enough");
+        }
+        final OrderModel orderModel = new OrderModel();
+        orderModel.setId(UUID.randomUUID().toString());
+        orderModel.setUserId(user.getId());
+        orderModel.setStatus(OrderStatus.PAID);
+        orderModel.setAmount(product.getAmount());
+        user.deduct(product.getAmount());
+
+        orderRepository.save(orderModel);
+
+    }
 
 }

@@ -33,10 +33,11 @@ public class ProductController {
     private final ProductRepository productRepository;
 
     @RequestMapping(value = "Products", method = RequestMethod.GET)
-    public String home (Model model, HttpSession session, RedirectAttributes redirectAttributes){
+    public String home (Model model, HttpSession session){
         List<ProductDto> list1 = productService.getProducts();
         model.addAttribute("list",list1);
         model.addAttribute("session",session);
+        session.setAttribute("product",list1.get(0).getId());
         return "welcome/home";
     }
 //    public List<ProductDto> getProducts() {
