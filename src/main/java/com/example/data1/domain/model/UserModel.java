@@ -42,13 +42,13 @@ public class UserModel extends BaseEntity implements Serializable {
 
     }
 
-//    @ManyToMany
-//    @JoinTable(name = "role_user",
-//            joinColumns = @JoinColumn(name = "user_id"),
-//            inverseJoinColumns = @JoinColumn(name = "role_id")
-//    )
-//    private Set<RoleModel> roles = new HashSet<>();
-//
+    @ManyToMany
+    @JoinTable(name = "role_user",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<RoleModel> roles = new HashSet<>();
+
     public void deduct(final Integer amount){
         this.balance= this.balance - amount;
     }

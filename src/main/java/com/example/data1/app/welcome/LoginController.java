@@ -10,10 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -26,7 +27,7 @@ public class LoginController {
         return "login/index";
     }
     @RequestMapping(value ="/" , method = RequestMethod.POST , params ="confirm")
-    public String createConfirm(@Validated LoginForm form, BindingResult result,
+    public String createConfirm(@Validated LoginForm form, HttpServletRequest request,
                                 Model model) {
         String username = form.getUsername();
         String password = form.getPassword();
@@ -40,6 +41,9 @@ public class LoginController {
         if(!user.getPassword().equals(password)){
             return Error1(form, model);
         }
+        final HttpSession session = request.getSession(true);
+        String name = user.getId();
+        session.setAttribute("user_id", name);
         return "redirect:/Products";
     }
     @RequestMapping(value = "login1", method = RequestMethod.POST)
