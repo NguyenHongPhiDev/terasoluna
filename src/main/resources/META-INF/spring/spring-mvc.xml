@@ -77,6 +77,20 @@
         </constructor-arg>
     </bean>
 
+    <bean class="org.terasoluna.gfw.web.exception.SystemExceptionResolver">
+        <property name="exceptionMappings">
+            <map>
+                <entry key="MultipartException"
+                       value="common/error/fileUploadError" />
+
+            </map>
+        </property>
+        <property name="statusCodes">
+            <map>
+                <entry key="common/error/fileUploadError" value="400" />
+            </map>
+        </property>
+    </bean>
     <!-- Setting Exception Handling. -->
     <!-- Exception Resolver. -->
     <bean id="systemExceptionResolver"

@@ -31,6 +31,18 @@
         </constructor-arg>
     </bean>
 
+<!--    <bean id="exceptionCodeResolver"-->
+<!--          class="org.terasoluna.gfw.common.exception.SimpleMappingExceptionCodeResolver">-->
+<!--        <property name="exceptionMappings">-->
+<!--            <map>-->
+<!--                &lt;!&ndash; (6) &ndash;&gt;-->
+<!--                <entry key="MultipartException" value="e.xx.fw.6001" />-->
+<!--                &lt;!&ndash; omitted &ndash;&gt;-->
+<!--            </map>-->
+<!--        </property>-->
+<!--        <property name="defaultExceptionCode" value="e.xx.fw.9001" />-->
+<!--        &lt;!&ndash; omitted &ndash;&gt;-->
+<!--    </bean>-->
     <context:property-placeholder
         location="classpath*:/META-INF/spring/*.properties" />
 

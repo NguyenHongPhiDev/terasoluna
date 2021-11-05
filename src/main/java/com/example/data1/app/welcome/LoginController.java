@@ -18,15 +18,14 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-@RequestMapping("login1")
 @RequiredArgsConstructor
 public class LoginController {
     private final UserService userService;
-    @RequestMapping(value = "/")
+    @RequestMapping("/login1")
     public String formLogin(@ModelAttribute("loginForm") UserModel form, Model model) {
         return "login/index";
     }
-    @RequestMapping(value ="/" , method = RequestMethod.POST , params ="confirm")
+    @RequestMapping(value = "/login1", method = RequestMethod.POST , params ="confirm")
     public String createConfirm(@Validated LoginForm form, HttpServletRequest request,
                                 Model model) {
         String username = form.getUsername();
